@@ -1,4 +1,6 @@
 const menuButton = document.querySelector(".menu-toggle");
+const themeButton = document.querySelector(".theme-toggle");
+const themeIcon = document.querySelector(".theme-icon");
 const navLinks = document.querySelector(".nav-links");
 const links = document.querySelectorAll(".nav-links a");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -8,6 +10,8 @@ const lightbox = document.querySelector("#imageLightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
 const lightboxTitle = document.querySelector("#lightboxTitle");
 const lightboxClose = document.querySelector(".lightbox-close");
+const savedTheme = localStorage.getItem("neza-theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 const imageFiles = [
   "assets/images/kich01.jpg",
@@ -61,6 +65,17 @@ const categoryNames = {
   bedroom: "Bedroom",
   shoes: "Shoes Stand"
 };
+
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+
+  document.body.dataset.theme = theme;
+  themeButton.setAttribute("aria-pressed", isDark ? "true" : "false");
+  themeButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  themeIcon.textContent = isDark ? "light_mode" : "dark_mode";
+}
+
+applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
 
 function filenameFromPath(path) {
   return path.split("/").pop().replace(/\.[^.]+$/, "");
@@ -166,6 +181,12 @@ function activateFilter(filter) {
 menuButton.addEventListener("click", () => {
   const open = navLinks.classList.toggle("open");
   menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+themeButton.addEventListener("click", () => {
+  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+  localStorage.setItem("neza-theme", nextTheme);
+  applyTheme(nextTheme);
 });
 
 links.forEach((link) => {
