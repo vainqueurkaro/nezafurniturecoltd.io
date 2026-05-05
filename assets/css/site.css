@@ -297,7 +297,7 @@
       grid-template-columns: 1.15fr .85fr;
       gap: 18px;
       align-items: stretch;
-      max-width: 980px;
+      max-width: min(50vw, 720px);
       margin: 0 auto;
     }
 
@@ -700,6 +700,10 @@
       .owner-layout,
       .tools {
         grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        max-width: 100%;
       }
     }
 
