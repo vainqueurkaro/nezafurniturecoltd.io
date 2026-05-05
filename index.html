@@ -1,342 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NeZa Furniture Co LTD - custom furniture, interior design, kitchens, bedrooms, living rooms, mirrors, exterior furniture, and innovation center.">
+  <title>NeZa Furniture Co LTD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <style>
+    :root {
+      --ink: #151715;
+      --muted: #6f766f;
+      --paper: #f7f4ed;
+      --panel: #ffffff;
+      --deep: #243226;
+      --accent: #2f7d52;
+      --accent-2: #c78f32;
+      --line: rgba(21, 23, 21, .12);
+      --shadow: 0 18px 50px rgba(20, 24, 20, .14);
+    }
 
-  <head>
+    * {
+      box-sizing: border-box;
+    }
 
-    <meta charset="utf-8">
-    <meta name="author" content="templatemo">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Roboto", Arial, sans-serif;
+    }
 
-    <title>NeZa Furniture | Innovation Center</title>
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 244, 237, .92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
 
-TemplateMo 577 Liberty Market
+    .nav-wrap {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-https://templatemo.com/tm-577-liberty-market
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
 
--->
-  </head>
+    .brand img {
+      width: 72px;
+      max-height: 54px;
+      object-fit: contain;
+    }
 
+    .brand span {
+      color: var(--deep);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      color: var(--deep);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: var(--deep);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--deep);
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      padding: 72px 0 42px;
+      background:
+        linear-gradient(90deg, rgba(20, 26, 19, .84), rgba(20, 26, 19, .26)),
+        url("assets/images/banner-bg.jpg") center / cover;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f2cf8b;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 46px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      max-width: 740px;
+      margin: 18px 0;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: .98;
+      font-weight: 900;
+    }
+
+    .hero p {
+      max-width: 610px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, .84);
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .button.secondary {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .58);
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .button.gold {
+      color: var(--ink);
+      background: #f0bf63;
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-title {
+      max-width: 740px;
+      margin-bottom: 34px;
+    }
+
+    .section-title.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      margin: 8px 0 14px;
+      color: var(--deep);
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .section-title p {
+      margin: 0;
+    }
+
+    .category-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .category {
+      min-height: 130px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(20, 24, 20, .06);
+    }
+
+    .category i {
+      color: var(--accent);
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .category h3 {
+      margin: 0;
+      color: var(--deep);
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .featured-band {
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .featured-band .section-title h2,
+    .featured-band .section-title p {
+      color: #fff;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .feature-main,
+    .feature-side {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      border-radius: 8px;
+      background: #111;
+    }
+
+    .feature-side {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      gap: 24px;
+      background: transparent;
+    }
+
+    .feature-side .feature-card {
+      min-height: 203px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+    }
+
+    .feature-main img,
+    .feature-card img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feature-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 24px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, .72), rgba(0, 0, 0, 0));
+    }
+
+    .feature-caption h3 {
+      margin: 0 0 4px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .feature-caption span {
+      color: #f0bf63;
+      font-weight: 800;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .search {
+      min-height: 48px;
+      width: 100%;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--deep);
+      font-weight: 800;
+    }
+
+    .filter-btn.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 10px 28px rgba(20, 24, 20, .07);
+    }
+
+    .product-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .product-images img {
+      aspect-ratio: 1 / .82;
+      object-fit: cover;
+    }
+
+    .product-body {
+      padding: 18px;
+    }
+
+    .product-body h3 {
+      margin: 0 0 12px;
+      color: var(--deep);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .owner {
+      background: #fff;
+    }
+
+    .owner-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .owner-photo {
+      max-width: 360px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--deep);
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .recent-item {
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .recent-item img {
+      aspect-ratio: 1 / 1.18;
+      object-fit: cover;
+    }
+
+    .recent-item h3 {
+      margin: 0;
+      padding: 14px;
+      color: var(--deep);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .request {
+      background: linear-gradient(135deg, #203026, #36563c);
+      color: #fff;
+    }
+
+    .request .section-title h2,
+    .request .section-title p {
+      color: #fff;
+    }
+
+    .request-form {
+      padding: 26px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .18);
+    }
+
+    .request-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .request-form input,
+    .request-form textarea,
+    .request-form select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--ink);
+    }
+
+    .request-form textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 26px 0;
+      color: rgba(255, 255, 255, .75);
+      background: #151715;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      color: rgba(255, 255, 255, .75);
+    }
+
+    footer a {
+      color: #f0bf63;
+      font-weight: 800;
+    }
+
+    @media (max-width: 991px) {
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 12px;
+        right: 12px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: block;
+      }
+
+      .nav-links a {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .category-strip,
+      .product-grid,
+      .recent-grid,
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid,
+      .owner-layout,
+      .tools {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .hero {
+        min-height: auto;
+        padding: 62px 0;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .category-strip,
+      .product-grid,
+      .recent-grid,
+      .stats,
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-main,
+      .feature-side .feature-card {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
 <body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="explore.html" class="active">Explore</a></li>
-                      <li><a href="author.html">About us</a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="NeZa Furniture home">
+        <img src="assets/images/logo.png" alt="NeZa Furniture logo">
+        <span>NeZa Furniture Co LTD</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#request">Request</a></li>
+      </ul>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
 
-  <!-- ***** Main Banner Area Start ***** -->
-  <div class="main-banner">
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Furniture and innovation center</span>
+        <h1>NeZa Furniture Co LTD</h1>
+        <p>Custom furniture for living rooms, kitchens, bedrooms, exterior spaces, mirrors, shoe stands, epoxy designs, and unique innovation projects across Rwanda.</p>
+        <div class="actions">
+          <a class="button primary" href="#explore"><i class="fa fa-compass" aria-hidden="true"></i>Explore Furniture</a>
+          <a class="button secondary" href="https://wa.me/250789862868" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i>WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="section-title center">
+          <span class="eyebrow">Browse</span>
+          <h2>Furniture categories</h2>
+          <p>One-page access to the same areas that were split across the old Home, Explore, Owner, and Request pages.</p>
+        </div>
+        <div class="category-strip">
+          <article class="category">
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+            <h3>Kitchen Field</h3>
+          </article>
+          <article class="category">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <h3>Living Room</h3>
+          </article>
+          <article class="category">
+            <i class="fa fa-bed" aria-hidden="true"></i>
+            <h3>Bedroom Field</h3>
+          </article>
+          <article class="category">
+            <i class="fa fa-square-o" aria-hidden="true"></i>
+            <h3>Mirror and Caring</h3>
+          </article>
+          <article class="category">
+            <i class="fa fa-tree" aria-hidden="true"></i>
+            <h3>Exterior Design</h3>
+          </article>
+          <article class="category">
+            <i class="fa fa-wrench" aria-hidden="true"></i>
+            <h3>Innovation Center</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-band">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Featured</span>
+          <h2>Recently built furniture</h2>
+          <p>Large visual previews from the previous Explore and Owner pages, now kept in one flow.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-main">
+            <img src="assets/images/author/PXL_20250705_190728293.PORTRAIT.jpg" alt="Smart sofa living room by NeZa Furniture">
+            <div class="feature-caption">
+              <h3>Smart sofa living room</h3>
+              <span>Contact Gervais: +250 789 862 868</span>
+            </div>
+          </article>
+          <div class="feature-side">
+            <article class="feature-card">
+              <img src="assets/images/cupBoard.jpg" alt="Custom cupboard by NeZa Furniture">
+              <div class="feature-caption">
+                <h3>Cupboard</h3>
+                <span>Custom storage</span>
+              </div>
+            </article>
+            <article class="feature-card">
+              <img src="assets/images/author/PXL_20250712_185723098.jpg" alt="Living room furniture scene by NeZa Furniture">
+              <div class="feature-caption">
+                <h3>Living room scene</h3>
+                <span>Interior finish</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="explore">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Explore</span>
+          <h2>Furniture collection</h2>
+          <p>Search by name or filter by category. Each old “View Details” link now opens the request section, because this is a single-page site.</p>
+        </div>
+        <div class="tools">
+          <input class="search" id="productSearch" type="search" placeholder="Search furniture, category, or price" aria-label="Search furniture">
+          <div class="filters" aria-label="Furniture filters">
+            <button class="filter-btn active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="kitchen">Kitchen</button>
+            <button class="filter-btn" type="button" data-filter="living">Living</button>
+            <button class="filter-btn" type="button" data-filter="bedroom">Bedroom</button>
+            <button class="filter-btn" type="button" data-filter="exterior">Exterior</button>
+            <button class="filter-btn" type="button" data-filter="innovation">Innovation</button>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-category="exterior" data-text="coffee shop exterior 600k rwf">
+            <div class="product-images">
+              <img src="assets/images/coffee01.jpg" alt="Coffee shop exterior furniture">
+              <img src="assets/images/cofee.jpg" alt="Coffee shop exterior furniture detail">
+            </div>
+            <div class="product-body">
+              <h3>Coffee shop exterior</h3>
+              <div class="meta"><span>Cost<strong>600k RWF</strong></span><span>Category<strong>Exterior Design</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="living" data-text="living room furniture 400k rwf">
+            <div class="product-images">
+              <img src="assets/images/livingroom01.jpg" alt="Living room furniture">
+              <img src="assets/images/livingroom02.jpg" alt="Living room furniture detail">
+            </div>
+            <div class="product-body">
+              <h3>Living room furniture</h3>
+              <div class="meta"><span>Cost<strong>400k RWF</strong></span><span>Category<strong>Living Room</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="kitchen" data-text="kitchen cabinet 330k rwf">
+            <div class="product-images">
+              <img src="assets/images/kich01.jpg" alt="Kitchen cabinet">
+              <img src="assets/images/kich02.jpg" alt="Kitchen cabinet detail">
+            </div>
+            <div class="product-body">
+              <h3>Kitchen cabinet</h3>
+              <div class="meta"><span>Cost<strong>330k RWF</strong></span><span>Category<strong>Kitchen Field</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedroom" data-text="bed extended bedroom 250k rwf">
+            <div class="product-images">
+              <img src="assets/images/bedroom01.jpg" alt="Bedroom furniture">
+              <img src="assets/images/bedroom02.jpg" alt="Bedroom furniture detail">
+            </div>
+            <div class="product-body">
+              <h3>Bed extended</h3>
+              <div class="meta"><span>Cost<strong>250k RWF</strong></span><span>Category<strong>Bedroom</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="living" data-text="epoxy living room scene 450k rwf">
+            <div class="product-images">
+              <img src="assets/images/banner-02.png" alt="Epoxy living room scene">
+              <img src="assets/images/livingroom04.jpg" alt="Epoxy living room detail">
+            </div>
+            <div class="product-body">
+              <h3>Epoxy living room scene</h3>
+              <div class="meta"><span>Cost<strong>450k RWF</strong></span><span>Category<strong>Living Room</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="living" data-text="sofa 340k rwf">
+            <div class="product-images">
+              <img src="assets/images/sofa.jpg" alt="Sofa by NeZa Furniture">
+              <img src="assets/images/sofa01.jpg" alt="Sofa detail by NeZa Furniture">
+            </div>
+            <div class="product-body">
+              <h3>Sofa</h3>
+              <div class="meta"><span>Cost<strong>340k RWF</strong></span><span>Category<strong>Living Room</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="exterior" data-text="shoes stand 12k rwf">
+            <div class="product-images">
+              <img src="assets/images/shoes.jpg" alt="Shoes stand">
+              <img src="assets/images/shoes01.jpg" alt="Shoes stand detail">
+            </div>
+            <div class="product-body">
+              <h3>Shoes stand</h3>
+              <div class="meta"><span>Cost<strong>12k RWF</strong></span><span>Category<strong>Interior Design</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedroom" data-text="mirror stand 80k rwf bedroom">
+            <div class="product-images">
+              <img src="assets/images/mirror.jpg" alt="Mirror stand">
+              <img src="assets/images/mirror01.jpg" alt="Mirror stand detail">
+            </div>
+            <div class="product-body">
+              <h3>Mirror stand</h3>
+              <div class="meta"><span>Cost<strong>80k RWF</strong></span><span>Category<strong>Bedroom</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="innovation" data-text="innovated furniture innovation">
+            <div class="product-images">
+              <img src="assets/images/other01.jpg" alt="Innovated furniture">
+              <img src="assets/images/other02.jpg" alt="Innovated furniture detail">
+            </div>
+            <div class="product-body">
+              <h3>Innovated furniture</h3>
+              <div class="meta"><span>Cost<strong>By request</strong></span><span>Category<strong>Innovation</strong></span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="owner" id="about">
+      <div class="container">
+        <div class="owner-layout">
+          <div>
+            <img class="owner-photo" src="assets/images/single-author.jpg" alt="Gervais Ndayambaje">
+          </div>
+          <div>
+            <span class="eyebrow">About us</span>
+            <div class="section-title">
+              <h2>Gervais Ndayambaje</h2>
+              <p>Owner of NeZa Furniture Co LTD. The company focuses on custom furniture, interior finishing, and fast client communication for made-to-order work.</p>
+            </div>
+            <div class="stats">
+              <div class="stat"><strong>4+</strong><span>Years experience</span></div>
+              <div class="stat"><strong>100+</strong><span>Furniture works</span></div>
+              <div class="stat"><strong>3.2k</strong><span>Facebook likes</span></div>
+            </div>
+            <div class="actions">
+              <a class="button primary" href="https://wa.me/250789862868" target="_blank" rel="noopener"><i class="fa fa-whatsapp" aria-hidden="true"></i>+250 789 862 868</a>
+              <a class="button gold" href="https://www.instagram.com/nezafurniture_interior_design/" target="_blank" rel="noopener"><i class="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="recent-grid">
+          <article class="recent-item">
+            <img src="assets/images/author/PXL_20250625_155633984.PORTRAIT.jpg" alt="Living room front light design">
+            <h3>Living room front light design</h3>
+          </article>
+          <article class="recent-item">
+            <img src="assets/images/author/PXL_20250701_103515851.PORTRAIT.jpg" alt="Living furniture simplified">
+            <h3>Living furniture simplified</h3>
+          </article>
+          <article class="recent-item">
+            <img src="assets/images/author/PXL_20250717_203255242.NIGHT.jpg" alt="Mirror extended furniture">
+            <h3>Mirror extended furniture</h3>
+          </article>
+          <article class="recent-item">
+            <img src="assets/images/author/PXL_20250722_183356789.jpg" alt="Living room recent work">
+            <h3>Living room recent work</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="request" id="request">
+      <div class="container">
+        <div class="row align-items-start g-4">
+          <div class="col-lg-5">
+            <div class="section-title">
+              <span class="eyebrow">Request</span>
+              <h2>Request custom furniture</h2>
+              <p>Fill in your furniture idea and the form will open WhatsApp with your details ready to send to NeZa Furniture.</p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form class="request-form" id="requestForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="furnitureName">Furniture name</label>
+                  <input id="furnitureName" name="furnitureName" type="text" placeholder="Example: Cupboard" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="category">Category</label>
+                  <select id="category" name="category" required>
+                    <option value="">Choose category</option>
+                    <option>Kitchen</option>
+                    <option>Living Room</option>
+                    <option>Bedroom</option>
+                    <option>Exterior</option>
+                    <option>Mirror</option>
+                    <option>Innovation</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="clientName">Your name</label>
+                  <input id="clientName" name="clientName" type="text" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+250 ..." required>
+                </div>
+                <div class="col-12">
+                  <label for="description">Customization details</label>
+                  <textarea id="description" name="description" placeholder="Describe size, color, room, material, or reference idea" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="button gold" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>Send request on WhatsApp</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center">
-          <div class="header-text">
-            <h6>NeZa Furniture & Innovation Center</h6>
-            <h2>COME TO TEST THE DIFFERENCE</h2>
-            <p>NeZa Furniture is a really cool and professional design for your favorite and best quality Furniture you trust it what we focus where ever you are in short time we do a difference</p>
-            <div class="buttons">
-              <div class="border-button">
-                <a href="explore.html">Explore Top Furniture at NeZa</a>
-              </div>
-              <div class="main-button">
-                <a href="#" target="_blank">Watch Our Videos</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 offset-lg-1">
-          <div class="owl-banner owl-carousel">
-            <div class="item">
-              <img src="assets/images/banner-01.png" alt="">
-            </div>
-            <div class="item">
-              <img src="assets/images/banner-02.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>Copyright © 2026 <a href="#home">NeZa</a> Furniture Co LTD. Designed by <a href="https://github.com/vainqueurkaro" target="_blank" rel="noopener">VENDOR TECH HUB</a>.</p>
     </div>
-  </div>
-  <!-- ***** Main Banner Area End ***** -->
-  
-  <div class="categories-collections">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="categories">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <div class="line-dec"></div>
-                  <h2>Browse Through Our <em>Categories</em> Here.</h2>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/kichicon.png" alt="">
-                  </div>
-                  <h4>KICHEN Field</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/livingroomicon" alt="">
-                  </div>
-                  <h4>Living Room</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/bedoomicon.png" alt="">
-                  </div>
-                  <h4>BED ROOM Field</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/other.png" alt="">
-                  </div>
-                  <h4>Mirror and Carering</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/exterial.png" alt="">
-                  </div>
-                  <h4>Exterial Design</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6">
-                <div class="item">
-                  <div class="icon">
-                    <img src="assets/images/toolset.png" alt="">
-                  </div>
-                  <h4>Innovation center</h4>
-                  <div class="icon-button">
-                    <a href="#"><i class="fa fa-angle-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="collections">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="section-heading">
-                  <div class="line-dec"></div>
-                  <h2>Explore Some Hot <em>Collections</em> In Furniture context.</h2>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="owl-collection owl-carousel">
-                  <div class="item">
-                    <img src="assets/images/kich02.jpg" alt="">
-                    <div class="down-content">
-                      <h4>kichen simplex Furniture</h4>
-                      <span class="collection">cost:<br><strong>330K RWF</strong></span>
-                      <span class="category">Category:<br><strong>KICHEN Field</strong></span>
-                      <div class="main-button">
-                        <a href="explore.html">Explorekichen simplex Furniture</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/livingroom01.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Smart scene Living Room</h4>
-                      <span class="collection">cost:<br><strong>300k RWF</strong></span>
-                      <span class="category">Category:<br><strong>Living Room</strong></span>
-                      <div class="main-button">
-                        <a href="explore.html">explore more ling Room</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/bedroom02.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Sleep Tight bedroom</h4>
-                      <span class="collection">cost:<br><strong>260 RWF</strong></span>
-                      <span class="category">Category:<br><strong>BEDROOM</strong></span>
-                      <div class="main-button">
-                        <a href="explore.html">Explorebedroom Furniture</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/bedroom02.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Coofee shop</h4>
-                      <span class="collection">cost:<br><strong>260 RWF</strong></span>
-                      <span class="category">Category:<br><strong>BEDROOM</strong></span>
-                      <div class="main-button">
-                        <a href="explore.html">Explorebedroom Furniture</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="assets/images/collection-01.jpg" alt="">
-                    <div class="down-content">
-                      <h4>Worldwide Artwork Ground</h4>
-                      <span class="collection">Items In Collection:<br><strong>426/468</strong></span>
-                      <span class="category">Category:<br><strong>Blockchain</strong></span>
-                      <div class="main-button">
-                        <a href="explore.html">Explore Worldwide</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </footer>
 
-  <div class="create-nft">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h2>Create Your NFT & Put It On The Market.</h2>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="main-button">
-            <a href="create.html">Create Your NFT Now</a>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="item first-item">
-            <div class="number">
-              <h6>1</h6>
-            </div>
-            <div class="icon">
-              <img src="assets/images/icon-02.png" alt="">
-            </div>
-            <h4>Set Up Your Wallet</h4>
-            <p>NFT means Non-Fungible Token that are used in digital cryptocurrency markets. There are many different kinds of NFTs in the industry.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="item second-item">
-            <div class="number">
-              <h6>2</h6>
-            </div>
-            <div class="icon">
-              <img src="assets/images/icon-04.png" alt="">
-            </div>
-            <h4>Add Your Digital NFT</h4>
-            <p>There are 5 different HTML pages included in this NFT <a href="https://templatemo.com/page/1" target="_blank" rel="nofollow">website template</a>. You can edit or modify any section on any page as you required.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="item">
-            <div class="icon">
-              <img src="assets/images/icon-06.png" alt="">
-            </div>
-            <h4>Sell Your NFT &amp; Make Profit</h4>
-            <p>If you would like to support our TemplateMo website, please visit <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">our contact page</a> to make a PayPal contribution. Thank you.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <p>Copyright © 2026 <a href="#">NeZa</a> Furniture Co., Ltd. All rights reserved.
-        &nbsp;&nbsp;
-        Designed by <a style="font-family: 'Adobe Hebrew';" title="HTML CSS Templates" rel="sponsored" href="https://github.com/vainqueurkaro" target="_blank">VENDOR TECH HUB</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const links = document.querySelectorAll(".nav-links a");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const productSearch = document.querySelector("#productSearch");
+    const products = document.querySelectorAll(".product-card");
 
+    menuButton.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    });
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        links.forEach((item) => item.classList.remove("active"));
+        link.classList.add("active");
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
+    function filterProducts() {
+      const active = document.querySelector(".filter-btn.active").dataset.filter;
+      const term = productSearch.value.trim().toLowerCase();
 
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
+      products.forEach((product) => {
+        const categoryMatch = active === "all" || product.dataset.category === active;
+        const textMatch = product.dataset.text.includes(term);
+        product.style.display = categoryMatch && textMatch ? "" : "none";
+      });
+    }
 
-  </body>
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        filterProducts();
+      });
+    });
+
+    productSearch.addEventListener("input", filterProducts);
+
+    document.querySelector("#requestForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const message = [
+        "Hello NeZa Furniture, I need custom furniture.",
+        `Furniture: ${data.get("furnitureName")}`,
+        `Category: ${data.get("category")}`,
+        `Name: ${data.get("clientName")}`,
+        `Phone: ${data.get("phone")}`,
+        `Details: ${data.get("description")}`
+      ].join("\n");
+      window.open(`https://wa.me/250789862868?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    });
+  </script>
+</body>
 </html>
