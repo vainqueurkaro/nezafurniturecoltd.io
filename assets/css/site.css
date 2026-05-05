@@ -130,6 +130,10 @@
       align-items: center;
     }
 
+    .hero .container {
+      width: 100%;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -161,6 +165,14 @@
       margin-bottom: 28px;
       color: rgba(255, 255, 255, .84);
       font-size: 18px;
+    }
+
+    @media (orientation: landscape) and (min-width: 768px) {
+      .hero .container {
+        max-width: 620px;
+        margin-right: max(24px, calc((100vw - 1140px) / 2));
+        margin-left: auto;
+      }
     }
 
     .actions {
