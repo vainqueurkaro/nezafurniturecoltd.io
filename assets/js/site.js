@@ -4,7 +4,6 @@ const links = document.querySelectorAll(".nav-links a");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const productSearch = document.querySelector("#productSearch");
 const productGrid = document.querySelector("#productGrid");
-const galleryGrid = document.querySelector("#galleryGrid");
 const lightbox = document.querySelector("#imageLightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
 const lightboxTitle = document.querySelector("#lightboxTitle");
@@ -53,17 +52,6 @@ const imageFiles = [
   "assets/images/mirror01.jpg",
   "assets/images/kich04.jpg",
   "assets/images/exterior.jpg"
-];
-
-const galleryImages = [
-  ["assets/images/logo.png", "NeZa logo"],
-  ["assets/images/ig.png", "Instagram"],
-  ["assets/images/iconig.png", "Instagram icon"],
-  ["assets/images/fb.png", "Facebook"],
-  ["assets/images/furn.png", "Furniture mark"],
-  ["assets/images/42phone.png", "Phone"],
-  ["assets/images/author.jpg", "Owner avatar"],
-  ["assets/images/single-author.jpg", "Gervais Ndayambaje"]
 ];
 
 const categoryNames = {
@@ -139,15 +127,6 @@ function renderProducts() {
         <div class="meta"><span>Type<strong>${categoryNames[product.category]}</strong></span><span>Action<strong>Click image</strong></span></div>
       </div>
     </article>
-  `).join("");
-}
-
-function renderGallery() {
-  galleryGrid.innerHTML = galleryImages.map(([src, title]) => `
-    <figure class="gallery-item">
-      <img src="${src}" alt="${title}" loading="lazy">
-      <figcaption>${title}</figcaption>
-    </figure>
   `).join("");
 }
 
@@ -258,5 +237,4 @@ document.querySelector("#requestForm").addEventListener("submit", (event) => {
 });
 
 renderProducts();
-renderGallery();
 filterProducts();
