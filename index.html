@@ -386,6 +386,37 @@
       box-shadow: 0 10px 28px rgba(20, 24, 20, .07);
     }
 
+    .gallery {
+      background: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .gallery-item img {
+      aspect-ratio: 1 / .84;
+      object-fit: cover;
+    }
+
+    .gallery-item figcaption {
+      min-height: 48px;
+      padding: 12px;
+      color: var(--deep);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
     .product-images {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -577,6 +608,7 @@
 
       .category-strip,
       .product-grid,
+      .gallery-grid,
       .recent-grid,
       .stats {
         grid-template-columns: repeat(2, 1fr);
@@ -605,6 +637,7 @@
 
       .category-strip,
       .product-grid,
+      .gallery-grid,
       .recent-grid,
       .stats,
       .meta {
@@ -632,6 +665,7 @@
         <li><a class="active" href="#home">Home</a></li>
         <li><a href="#categories">Categories</a></li>
         <li><a href="#explore">Explore</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#request">Request</a></li>
       </ul>
@@ -831,7 +865,78 @@
               <div class="meta"><span>Cost<strong>By request</strong></span><span>Category<strong>Innovation</strong></span></div>
             </div>
           </article>
+          <article class="product-card" data-category="kitchen" data-text="kitchen cabinet extended 350k rwf">
+            <div class="product-images">
+              <img src="assets/images/kich03.jpg" alt="Kitchen cabinet extended">
+              <img src="assets/images/kich04.jpg" alt="Kitchen cabinet extended detail">
+            </div>
+            <div class="product-body">
+              <h3>Kitchen cabinet extended</h3>
+              <div class="meta"><span>Cost<strong>350k RWF</strong></span><span>Category<strong>Kitchen Field</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="bedroom" data-text="sofa bed bedroom 300k rwf">
+            <div class="product-images">
+              <img src="assets/images/bedroom03.jpg" alt="Sofa bed">
+              <img src="assets/images/bedroom05.jpg" alt="Sofa bed detail">
+            </div>
+            <div class="product-body">
+              <h3>Sofa bed</h3>
+              <div class="meta"><span>Cost<strong>300k RWF</strong></span><span>Category<strong>Bedroom</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="living" data-text="living room sofa set 350k rwf">
+            <div class="product-images">
+              <img src="assets/images/livingroom06.jpg" alt="Living room sofa">
+              <img src="assets/images/livingroom05.jpg" alt="Living room sofa detail">
+            </div>
+            <div class="product-body">
+              <h3>Living room sofa set</h3>
+              <div class="meta"><span>Cost<strong>350k RWF</strong></span><span>Category<strong>Living Room</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="exterior" data-text="shoe stand set 12k rwf">
+            <div class="product-images">
+              <img src="assets/images/shoes02.jpg" alt="Shoe stand set">
+              <img src="assets/images/shoes03.jpg" alt="Shoe stand set detail">
+            </div>
+            <div class="product-body">
+              <h3>Shoe stand set</h3>
+              <div class="meta"><span>Cost<strong>12k RWF</strong></span><span>Category<strong>Exterior</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="living" data-text="epoxy design 300k rwf">
+            <div class="product-images">
+              <img src="assets/images/epoxy01.jpg" alt="Epoxy design">
+              <img src="assets/images/epoxy.jpg" alt="Epoxy design detail">
+            </div>
+            <div class="product-body">
+              <h3>Epoxy design</h3>
+              <div class="meta"><span>Cost<strong>300k RWF</strong></span><span>Category<strong>Living Room</strong></span></div>
+            </div>
+          </article>
+          <article class="product-card" data-category="exterior" data-text="exterior coffee shop 500k rwf">
+            <div class="product-images">
+              <img src="assets/images/coffee02.jpg" alt="Coffee shop exterior view">
+              <img src="assets/images/exterior.jpg" alt="Exterior furniture view">
+            </div>
+            <div class="product-body">
+              <h3>Exterior coffee shop</h3>
+              <div class="meta"><span>Cost<strong>500k RWF</strong></span><span>Category<strong>Exterior</strong></span></div>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Gallery</span>
+          <h2>All stored images</h2>
+          <p>Every restored, non-duplicate image is represented here so the repository images remain part of the website.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
       </div>
     </section>
 
@@ -944,6 +1049,69 @@
     const filterButtons = document.querySelectorAll(".filter-btn");
     const productSearch = document.querySelector("#productSearch");
     const products = document.querySelectorAll(".product-card");
+    const galleryImages = [
+      ["assets/images/42phone.png", "Phone icon"],
+      ["assets/images/author.jpg", "Owner avatar"],
+      ["assets/images/author/PXL_20250625_155633984.PORTRAIT.jpg", "Living room front light design"],
+      ["assets/images/author/PXL_20250701_103515851.PORTRAIT.jpg", "Living furniture simplified"],
+      ["assets/images/author/PXL_20250705_190728293.PORTRAIT.jpg", "Smart sofa living room"],
+      ["assets/images/author/PXL_20250712_185723098.jpg", "Living room scene"],
+      ["assets/images/author/PXL_20250717_203255242.NIGHT.jpg", "Mirror extended furniture"],
+      ["assets/images/author/PXL_20250717_203321151.PORTRAIT.jpg", "Recent interior detail"],
+      ["assets/images/author/PXL_20250722_183356789.jpg", "Recent living room work"],
+      ["assets/images/banner-01.png", "Banner living room design"],
+      ["assets/images/banner-02.png", "Banner epoxy living room"],
+      ["assets/images/banner-bg.jpg", "Banner background"],
+      ["assets/images/bedroom01.jpg", "Bedroom furniture"],
+      ["assets/images/bedroom02.jpg", "Bedroom furniture detail"],
+      ["assets/images/bedroom03.jpg", "Sofa bed"],
+      ["assets/images/bedroom05.jpg", "Sofa bed detail"],
+      ["assets/images/cofee.jpg", "Coffee shop furniture"],
+      ["assets/images/coffee01.jpg", "Coffee shop exterior"],
+      ["assets/images/coffee02.jpg", "Coffee shop exterior view"],
+      ["assets/images/cupBoard.jpg", "Cupboard"],
+      ["assets/images/cupBoard1.jpg", "Cupboard detail"],
+      ["assets/images/dark-bg.jpg", "Dark background texture"],
+      ["assets/images/epoxy.jpg", "Epoxy design detail"],
+      ["assets/images/epoxy01.jpg", "Epoxy design"],
+      ["assets/images/exterior.jpg", "Exterior furniture"],
+      ["assets/images/exterior01.jpg", "Exterior detail"],
+      ["assets/images/fb.png", "Facebook icon"],
+      ["assets/images/furn.png", "Furniture icon"],
+      ["assets/images/heading-bg.jpg", "Heading background"],
+      ["assets/images/iconig.png", "Instagram icon"],
+      ["assets/images/ig.png", "Instagram mark"],
+      ["assets/images/kich01.jpg", "Kitchen cabinet"],
+      ["assets/images/kich02.jpg", "Kitchen cabinet detail"],
+      ["assets/images/kich03.jpg", "Kitchen cabinet extended"],
+      ["assets/images/kich04.jpg", "Kitchen cabinet extended detail"],
+      ["assets/images/livingroom01.jpg", "Living room furniture"],
+      ["assets/images/livingroom02.jpg", "Living room furniture detail"],
+      ["assets/images/livingroom03.jpg", "Living room view"],
+      ["assets/images/livingroom04.jpg", "Living room epoxy detail"],
+      ["assets/images/livingroom05.jpg", "Living room sofa detail"],
+      ["assets/images/livingroom06.jpg", "Living room sofa"],
+      ["assets/images/logo.png", "NeZa logo"],
+      ["assets/images/main-bg.jpg", "Main background"],
+      ["assets/images/mirror.jpg", "Mirror stand"],
+      ["assets/images/mirror01.jpg", "Mirror stand detail"],
+      ["assets/images/other01.jpg", "Innovation furniture"],
+      ["assets/images/other02.jpg", "Innovation furniture detail"],
+      ["assets/images/other03.jpg", "Other furniture"],
+      ["assets/images/other04.jpg", "Other furniture detail"],
+      ["assets/images/other05.jpg", "Custom furniture"],
+      ["assets/images/other06.jpg", "Custom furniture detail"],
+      ["assets/images/other07.jpg", "Custom furniture view"],
+      ["assets/images/shoes.jpg", "Shoe stand"],
+      ["assets/images/shoes01.jpg", "Shoe stand detail"],
+      ["assets/images/shoes02.jpg", "Shoe stand set"],
+      ["assets/images/shoes03.jpg", "Shoe stand set detail"],
+      ["assets/images/single-author.jpg", "Gervais Ndayambaje"],
+      ["assets/images/sofa.jpg", "Sofa"],
+      ["assets/images/sofa01.jpg", "Sofa detail"],
+      ["assets/images/sofa02.jpg", "Sofa view"],
+      ["assets/images/sofa03.jpg", "Sofa detail view"]
+    ];
 
     menuButton.addEventListener("click", () => {
       const open = navLinks.classList.toggle("open");
@@ -979,6 +1147,13 @@
     });
 
     productSearch.addEventListener("input", filterProducts);
+
+    document.querySelector("#galleryGrid").innerHTML = galleryImages.map(([src, title]) => `
+      <figure class="gallery-item">
+        <img src="${src}" alt="${title}" loading="lazy">
+        <figcaption>${title}</figcaption>
+      </figure>
+    `).join("");
 
     document.querySelector("#requestForm").addEventListener("submit", (event) => {
       event.preventDefault();
