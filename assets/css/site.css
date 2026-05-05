@@ -295,15 +295,17 @@
     .feature-grid {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 24px;
+      gap: 18px;
       align-items: stretch;
+      max-width: 980px;
+      margin: 0 auto;
     }
 
     .feature-main,
     .feature-side {
       position: relative;
       overflow: hidden;
-      min-height: 430px;
+      min-height: 310px;
       border-radius: 8px;
       background: #111;
     }
@@ -311,12 +313,12 @@
     .feature-side {
       display: grid;
       grid-template-rows: repeat(2, 1fr);
-      gap: 24px;
+      gap: 18px;
       background: transparent;
     }
 
     .feature-side .feature-card {
-      min-height: 203px;
+      min-height: 146px;
       border-radius: 8px;
       overflow: hidden;
       position: relative;
@@ -725,6 +727,6 @@
 
       .feature-main,
       .feature-side .feature-card {
-        min-height: 260px;
+        min-height: 220px;
       }
     }
