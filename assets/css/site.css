@@ -214,6 +214,19 @@
       background: var(--gold-gradient);
     }
 
+    .button-icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .button-symbol {
+      font-size: 22px;
+      line-height: 1;
+      font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24;
+    }
+
     section {
       padding: 86px 0;
     }
@@ -295,9 +308,9 @@
     .feature-grid {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
+      gap: 14px;
       align-items: stretch;
-      max-width: min(50vw, 720px);
+      max-width: min(46vw, 620px);
       margin: 0 auto;
     }
 
@@ -305,7 +318,7 @@
     .feature-side {
       position: relative;
       overflow: hidden;
-      min-height: 310px;
+      min-height: 210px;
       border-radius: 8px;
       background: #111;
     }
@@ -313,12 +326,12 @@
     .feature-side {
       display: grid;
       grid-template-rows: repeat(2, 1fr);
-      gap: 18px;
+      gap: 14px;
       background: transparent;
     }
 
     .feature-side .feature-card {
-      min-height: 146px;
+      min-height: 98px;
       border-radius: 8px;
       overflow: hidden;
       position: relative;
@@ -731,6 +744,6 @@
 
       .feature-main,
       .feature-side .feature-card {
-        min-height: 220px;
+        min-height: 170px;
       }
     }
